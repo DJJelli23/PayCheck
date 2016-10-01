@@ -10,14 +10,14 @@ namespace DAO
     public abstract class BaseDAO
     {
         SqlConnection connection;
-        String defaultCon = "Data Source=.\\SQLExpress;Integrated Security=true";
+        string defaultCon = "Data Source=.\\SQLExpress;Integrated Security=true";
         //String defaultCon = "Data Source=DJJELLINGS\\SQLExpress;AttachDbFilename=C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.SQLEXPRESS\\MSSQL\\DATA\\State and Fed Taxes.mdf;Integrated Security=true";
-        public SqlConnection connect(String database)
+        public SqlConnection connect(string database)
         {
             return connect(defaultCon, database);
         }
 
-        public SqlConnection connect(String connectionStr, String dbName)
+        public SqlConnection connect(string connectionStr, string dbName)
         {
             connection = new SqlConnection(connectionStr);
             connection.Open();
