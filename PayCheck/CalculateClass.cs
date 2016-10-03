@@ -139,7 +139,7 @@ namespace PayCheck
         }
         /*
          * PROPERTIES
-        */
+         */
         public decimal PreTax
         {
             get { return preTax; }
@@ -172,7 +172,7 @@ namespace PayCheck
 
         /*
          * PROPERTIES
-        */
+         */
         public decimal CalcPTO(decimal pto, decimal hourly)//Calculating if the user has PTO using what the user makes per hour.
         {
             subtotal = pto * hourly;
