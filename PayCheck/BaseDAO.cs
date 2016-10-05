@@ -11,7 +11,10 @@ namespace DAO
     {
         SqlConnection connection;
         string defaultCon = "Data Source=.;Integrated Security=true";
-        //String defaultCon = "Data Source=DJJELLINGS\\SQLExpress;AttachDbFilename=C:\\Program Files\\Microsoft SQL Server\\MSSQL10_50.SQLEXPRESS\\MSSQL\\DATA\\State and Fed Taxes.mdf;Integrated Security=true";
+        
+        // String defaultCon = "Data Source=DJJELLINGS\\SQLExpress;AttachDbFilename=C:\\Program Files\\Microsoft SQL Server
+        // \\MSSQL10_50.SQLEXPRESS\\MSSQL\\DATA\\State and Fed Taxes.mdf;Integrated Security=true";
+
         public SqlConnection connect(string database)
         {
             return connect(defaultCon, database);

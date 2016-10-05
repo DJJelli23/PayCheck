@@ -17,15 +17,15 @@ namespace PayCheck
         UtahDS utahDS = new UtahDS();
         public new decimal CalculateStateTax()
         {
-            decimal line1;
-            decimal line2;
-            decimal line3;
-            decimal line4;
-            decimal line5;
-            decimal line6;
-            decimal line7;
-            decimal line8;
-            decimal line9;
+            decimal grossIncome;
+            decimal timesStateAmount;
+            decimal numWithAllowances;
+            decimal timesAllowanceBy;
+            decimal baseAllowance;
+            decimal sumOfAllowances;
+            decimal diffOfGross;
+            decimal diffGrossTimesPercent;
+            decimal diffOfAllowandGrossPercent;
             decimal statePre = utahDS.SomeMethod("[State Tax Amount]", "State Tax Amount", 1);
 
             //this is where the if statement would go to see which payperiod the user has.
@@ -33,41 +33,41 @@ namespace PayCheck
             {
                 case 1:
                 case 3:
-                    line1 = IncomeAmount;
-                    line2 = statePre * line1;
-                    line3 = AllowenceAmount;
-                    line4 = line3 * 5;
-                    line5 = utahDS.SomeMethod("[Biweekly Base Allowence Single]", "Biweekly Base Allowence Single", 0);
-                    line6 = line4 + line5;
-                    line7 = line1 - utahDS.SomeMethod("[Biweekly Amount Single]", "Biweekly Amount Single", 0);
-                    line8 = line7 * utahDS.SomeMethod("[Multiply by a Percent]", "Multiply by a Percent", 1);
-                    line9 = line6 - line8;
-                    StateWith = line2 - line9;
+                    grossIncome = IncomeAmount;
+                    timesStateAmount = statePre * grossIncome;
+                    numWithAllowances = AllowenceAmount;
+                    timesAllowanceBy = numWithAllowances * 5;
+                    baseAllowance = utahDS.SomeMethod("[Biweekly Base Allowence Single]", "Biweekly Base Allowence Single", 0);
+                    sumOfAllowances = timesAllowanceBy + baseAllowance;
+                    diffOfGross = grossIncome - utahDS.SomeMethod("[Biweekly Amount Single]", "Biweekly Amount Single", 0);
+                    diffGrossTimesPercent = diffOfGross * utahDS.SomeMethod("[Multiply by a Percent]", "Multiply by a Percent", 1);
+                    diffOfAllowandGrossPercent = sumOfAllowances - diffGrossTimesPercent;
+                    StateWith = timesStateAmount - diffOfAllowandGrossPercent;
                     break;
                 case 2:
                 case 4:
-                    line1 = IncomeAmount;
-                    line2 = statePre * line1;
-                    line3 = AllowenceAmount;
-                    line4 = line3 * 5;
-                    line5 = utahDS.SomeMethod("[Biweekly Base Allowence Married]","Biweekly Base Allowence Married", 0);
-                    line6 = line4 + line5;
-                    line7 = line1 - utahDS.SomeMethod("[Biweekly Amount Married]", "Biweekly Amount Married", 0);
-                    line8 = line7 * utahDS.SomeMethod("[Multiply by a Percent]", "Multiply by a Percent", 1);
-                    line9 = line6 - line8;
-                    StateWith = line2 - line9;
+                    grossIncome = IncomeAmount;
+                    timesStateAmount = statePre * grossIncome;
+                    numWithAllowances = AllowenceAmount;
+                    timesAllowanceBy = numWithAllowances * 5;
+                    baseAllowance = utahDS.SomeMethod("[Biweekly Base Allowence Married]","Biweekly Base Allowence Married", 0);
+                    sumOfAllowances = timesAllowanceBy + baseAllowance;
+                    diffOfGross = grossIncome - utahDS.SomeMethod("[Biweekly Amount Married]", "Biweekly Amount Married", 0);
+                    diffGrossTimesPercent = diffOfGross * utahDS.SomeMethod("[Multiply by a Percent]", "Multiply by a Percent", 1);
+                    diffOfAllowandGrossPercent = sumOfAllowances - diffGrossTimesPercent;
+                    StateWith = timesStateAmount - diffOfAllowandGrossPercent;
                     break;
                 default:
-                    line1 = IncomeAmount;
-                    line2 = statePre * line1;
-                    line3 = AllowenceAmount;
-                    line4 = line3 * 5;
-                    line5 = utahDS.SomeMethod("[Biweekly Base Allowence Single]", "Biweekly Base Allowence Single", 0);
-                    line6 = line4 + line5;
-                    line7 = line1 - utahDS.SomeMethod("[Biweekly Amount Single]","Biweekly Amount Single", 0);
-                    line8 = line7 * utahDS.SomeMethod("[Multiply by a Percent]", "Multiply by a Percent", 1);
-                    line9 = line6 - line8;
-                    StateWith = line2 - line9;
+                    grossIncome = IncomeAmount;
+                    timesStateAmount = statePre * grossIncome;
+                    numWithAllowances = AllowenceAmount;
+                    timesAllowanceBy = numWithAllowances * 5;
+                    baseAllowance = utahDS.SomeMethod("[Biweekly Base Allowence Single]", "Biweekly Base Allowence Single", 0);
+                    sumOfAllowances = timesAllowanceBy + baseAllowance;
+                    diffOfGross = grossIncome - utahDS.SomeMethod("[Biweekly Amount Single]","Biweekly Amount Single", 0);
+                    diffGrossTimesPercent = diffOfGross * utahDS.SomeMethod("[Multiply by a Percent]", "Multiply by a Percent", 1);
+                    diffOfAllowandGrossPercent = sumOfAllowances - diffGrossTimesPercent;
+                    StateWith = timesStateAmount - diffOfAllowandGrossPercent;
                     break;
             }
             return StateWith;
