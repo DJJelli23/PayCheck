@@ -14,8 +14,8 @@ namespace PayCheck
     class UtahDAO : BaseDAO
     {
         SqlConnection con;
-        string sql = "";
-        public decimal SelectMethod(string sql2, string sql)
+        String sql = "";
+        public decimal SelectMethod(String sql2, String sql)
         {
             decimal matchingTaxInformation = 0;
             con = connect("State and Fed Taxes");
@@ -30,7 +30,7 @@ namespace PayCheck
             return matchingTaxInformation;
         }
 
-        public int SelectMethodInt(string sql2, string sql)
+        public int SelectMethodInt(String sql2, String sql)
         {
             int matchingTaxInformation = 0;
             con = connect("State and Fed Taxes");

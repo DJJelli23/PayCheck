@@ -13,10 +13,10 @@ namespace PayCheck.Federal
 {
     class FederalDAO : BaseDAO
     {
-        public decimal SelectMethod(string sql2, string sql)
+        public decimal SelectMethod(String sql2, String sql)
         {
             SqlConnection con;
-            string sqlState = "";
+            String sqlState = "";
             decimal matchingTaxInformation = 0;
             con = connect("State and Fed Taxes");
             sqlState = sql;
@@ -30,10 +30,10 @@ namespace PayCheck.Federal
             return matchingTaxInformation;
         }
 
-        public int SelectMethodInt(string sql2, string sql)
+        public int SelectMethodInt(String sql2, String sql)
         {
             SqlConnection con;
-            string sqlState = "";
+            String sqlState = "";
             int matchingTaxInformation = 0;
             con = connect("State and Fed Taxes");
             sqlState = sql;
