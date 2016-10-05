@@ -34,6 +34,8 @@ namespace PayCheck
         }
 
         //Calculating gross wages before taxes are taken out.
+
+        //--------------------------------------Notes-------------------------------------------------//
         public void CheckWage(decimal hour, decimal firstW, decimal secW, char holBol, int holInt)
         {
             hourly = hour;
@@ -83,6 +85,7 @@ namespace PayCheck
 
             if (firstW > oneWeek)
             {
+                //Where we are at on notes.
                 if (firstW >= twoWeek || firstW >= 65 && secW == 0)
                 {
                     overTime = 0;

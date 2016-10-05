@@ -256,9 +256,10 @@ namespace PayCheck
                     firstHourBox.Text = "";
                     Clear();
                 }
+                //-------------------------------------------------------------------------------------------------------------------------------------//
                 if (hoursF >= 65 && hoursSec == "")
                 {
-                    hoursFir = "0";
+                    hoursSec = "0";
                     hoursS = 0;
                 }
                 else
@@ -267,6 +268,7 @@ namespace PayCheck
                     secHourBox.Text = "";
                     Clear();
                 }
+                //-------------------------------------------------------------------------------------------------------------------------------------//
                 /*if (!decimal.TryParse(payPerHours, out hoursH) && !decimal.TryParse(hoursFir, out hoursF) && !decimal.TryParse(hoursSec, out hoursS))
                 {
                     MessageBox.Show("You did not enter a number some or all of the following: Pay Per Hours, First Week Hours, or Second Week Hours.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -276,6 +278,7 @@ namespace PayCheck
                     Clear();
                 }*/
             }
+            //----------------------------------------------------------------------------------------------------------------------------------------//
             if (decimal.TryParse(hoursFir, out hoursF))
             {
                 hoursF = Convert.ToDecimal(hoursFir);
@@ -314,7 +317,7 @@ namespace PayCheck
             int allowTest;
             if (!int.TryParse(allow, out allowTest))//Check to make sure the user entered a number.
             {
-                MessageBox.Show("You did not enter a number in Allowences!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("You did not enter a number in Allowences.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 allowTextBox.Text = "";
                 Clear();
             }
