@@ -60,14 +60,14 @@ namespace PayCheck
             CheckFillingStatus();
 
             calculator.Allowences = Convert.ToInt16(allowTextBox.Text);
-            if (yesPTO.Checked == true)
+            if (yesPTO.Checked)
             {
                 pto = Convert.ToDecimal(ptoTextBox.Text);
                 pto = calculator.HoursCalc(pto);
                 calculator.CalcPTO(pto, hourly);
             }
             grossLabel.Text += "$" + calculator.Total.ToString("#,###.00");
-            if (preTaxAmountRadioButton.Checked == true && preTaxAmountTextBox.Text != "")
+            if (preTaxAmountRadioButton.Checked && preTaxAmountTextBox.Text != "")
             {
                 calculator.PreTax = Convert.ToDecimal(RemoveSpecialCharacters(preTaxAmountTextBox.Text));
                 calculator.Total -= calculator.PreTax;
@@ -75,7 +75,7 @@ namespace PayCheck
                 preTaxLabel.Visible = true;
                 preTaxLabel.Text += "$" + calculator.PreTax.ToString("#,###.00");
             }
-            else if (preTaxPercentRadioButton.Checked == true && preTaxPercentTextBox.Text != "")
+            else if (preTaxPercentRadioButton.Checked && preTaxPercentTextBox.Text != "")
             {
                 calculator.PreTax = Convert.ToDecimal(RemoveSpecialCharacters(preTaxPercentTextBox.Text)) / 100;
                 subtotal = calculator.Total  * calculator.PreTax;
@@ -85,12 +85,12 @@ namespace PayCheck
                 preTaxLabel.Text += "$" + subtotal.ToString("#,###.00");
             }
 
-            if (yesSavingsRadioButton.Checked == true && percentSavingBox.Text != "")
+            if (yesSavingsRadioButton.Checked && percentSavingBox.Text != "")
             {
                 string hopePercent = RemoveSpecialCharacters(percentSavingBox.Text);
                 savings = Convert.ToDecimal(hopePercent) / 100;
             }
-            else if (amountSavingRadioButton.Checked == true && amountSavingTextBox.Text != "")//Getting the amount from the whole abount text box.
+            else if (amountSavingRadioButton.Checked && amountSavingTextBox.Text != "")//Getting the amount from the whole abount text box.
             {
                 string hopeAmount = RemoveSpecialCharacters(amountSavingTextBox.Text);
                 savings = Convert.ToDecimal(hopeAmount);
@@ -104,7 +104,7 @@ namespace PayCheck
             taxLabel.Visible = true;
             calculator.Total -= taxes;
             taxLabel.Text += "$" + taxes.ToString("#,###.00");
-            if (garnishPercentAmountRadioButton.Checked == true && garnishPercentAmountTextBox.Text != "")
+            if (garnishPercentAmountRadioButton.Checked && garnishPercentAmountTextBox.Text != "")
             {
                 calculator.PostTax = Convert.ToDecimal(RemoveSpecialCharacters(garnishPercentAmountTextBox.Text)) / 100;
                 subtotal = calculator.Total * calculator.PostTax;
@@ -114,7 +114,7 @@ namespace PayCheck
                 garnishLabel.Visible = true;
                 garnishLabel.Text += "$" + subtotal.ToString("#,###.00");
             }
-            else if (garnishWholeAmountRadioButton.Checked == true && garnishWholeAmountTextBox.Text != "")
+            else if (garnishWholeAmountRadioButton.Checked && garnishWholeAmountTextBox.Text != "")
             {
                 calculator.PostTax = Convert.ToDecimal(RemoveSpecialCharacters(garnishWholeAmountTextBox.Text));
                 calculator.Total += taxes;
@@ -123,7 +123,8 @@ namespace PayCheck
                 garnishLabel.Visible = true;
                 garnishLabel.Text += "$" + calculator.PostTax.ToString("#,###.00");
             }
-            if (percentSavingsRadioButton.Checked == true)//making sure to only use the percent amount.
+            //making sure to only use the percent amount.
+            if (percentSavingsRadioButton.Checked)
             {
                 savingsTotalLabel.Visible = true;
                 amountSavingTextBox.Text = "";
@@ -131,7 +132,7 @@ namespace PayCheck
                 calculator.Total -= savings;
                 savingsTotalLabel.Text += "$" + savings.ToString("#,###.00");
             }
-            else if (amountSavingRadioButton.Checked == true)
+            else if (amountSavingRadioButton.Checked)
             {
                 savingsTotalLabel.Visible = true;
                 percentSavingBox.Text = "";
