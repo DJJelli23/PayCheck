@@ -22,11 +22,14 @@ namespace PayCheck
         public decimal SomeMethod(String sql, String sql3, int guess)
         {
             String sql2 = "Select " + sql + " from [Utah State Tax] where year=2016";
-            if (guess == 0)
+            if (guess == 0)// 0 is in relation to an integer in the database.
             {
                 return UTDAO.SelectMethodInt(sql2, sql3);
             }
-            return UTDAO.SelectMethod(sql2, sql3);
+            else
+            {
+                return UTDAO.SelectMethod(sql2, sql3);
+            }
         }
     }
 }
