@@ -91,7 +91,7 @@ namespace PayCheck
                     overTime = 0;
                     overTime = overTime + (firstW - twoWeek);//Calculating overtime
                     firstW = twoWeek;
-                    total = total + hourly * firstW;//Getting the whole gross amount before adding overtime.
+                    total = total + (hourly * firstW);//Getting the whole gross amount before adding overtime.
                     total = total + (overTime * overHourly);//Adding the overtime to the gross amount.
                 }
                 else if (firstW > oneWeek)
@@ -99,7 +99,7 @@ namespace PayCheck
                     overTime = 0;
                     overTime = overTime + (firstW - oneWeek);//Calculating overtime for first week.
                     firstW = oneWeek;//Setting the first week to 40 normal hours.
-                    total = total + hourly * (firstW);//Getting the whole gross amount before adding overtime.
+                    total = total + (hourly * firstW);//Getting the whole gross amount before adding overtime.
                     total = total + (overTime * overHourly);//Adding the overtime to the gross amount.
                 }
             }
@@ -118,7 +118,7 @@ namespace PayCheck
                     overTime = 0;
                     overTime = overTime + (firstW - twoWeek);//Calculating overtime
                     firstW = twoWeek;
-                    total = total + hourly * firstW;//Getting the whole gross amount before adding overtime.
+                    total = total + (hourly * firstW);//Getting the whole gross amount before adding overtime.
                     total = total + (overTime * overHourly);//Adding the overtime to the gross amount.
                 }
                 else if (secW > oneWeek)
