@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 
 namespace DAO
 {
+    //Part 6 of ADO.NET will show a better way to access the database.
     public abstract class BaseDAO
     {
         SqlConnection connection;
