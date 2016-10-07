@@ -11,186 +11,186 @@ namespace PayCheck
         ColoradoDS coloDS = new ColoradoDS();
         public new decimal CalculateStateTax()
         {
-            decimal line1;
-            decimal line2 = 0;
-            decimal line3;
-            decimal line4;
+            decimal grossAmount;
+            decimal numWithAllowances = 0;
+            decimal diffOfAllowandGross;
+            decimal totalAfterPerWithTableandStatePre;
             decimal statePre = coloDS.SomeMethod("[State Percentage]", "State Percentage", 1);
             //this is where the if statement would go to see which payperiod the user has.
             switch (MaritalStatus)
             {
                 case 1:
                 case 3:
-                    line1 = IncomeAmount;
+                    grossAmount = IncomeAmount;
                     switch (AllowenceAmount)
                     {
                         case 0:
-                            line2 = 0;
+                            numWithAllowances = 0;
                             break;
                         case 1:
-                            line2 = 154;
+                            numWithAllowances = 154;
                             break;
                         case 2:
-                            line2 = 308;
+                            numWithAllowances = 308;
                             break;
                         case 3:
-                            line2 = 462;
+                            numWithAllowances = 462;
                             break;
                         case 4:
-                            line2 = 615;
+                            numWithAllowances = 615;
                             break;
                         case 5:
-                            line2 = 769;
+                            numWithAllowances = 769;
                             break;
                         case 6:
-                            line2 = 923;
+                            numWithAllowances = 923;
                             break;
                         case 7:
-                            line2 = 1077;
+                            numWithAllowances = 1077;
                             break;
                         case 8:
-                            line2 = 1231;
+                            numWithAllowances = 1231;
                             break;
                         case 9:
-                            line2 = 1365;
+                            numWithAllowances = 1365;
                             break;
                         case 10:
-                            line2 = 1538;
+                            numWithAllowances = 1538;
                             break;
                         default:
                             if (AllowenceAmount > 10)
                             {
                                 int temp = AllowenceAmount - 10;
                                 temp *= 154;
-                                line2 = temp;
+                                numWithAllowances = temp;
                             }
                             break;
                     }
-                    line3 = line1 - line2;
-                    if (line3 >= 44)
+                    diffOfAllowandGross = grossAmount - numWithAllowances;
+                    if (diffOfAllowandGross > 44)
                     {
-                        line4 = (line3 - 44) * statePre;
+                        totalAfterPerWithTableandStatePre = (diffOfAllowandGross - 44) * statePre;
                     }
                     else
                     {
-                        line4 = 0;
+                        totalAfterPerWithTableandStatePre = 0;
                     }
-                    StateWith = line4;
+                    StateWith = totalAfterPerWithTableandStatePre;
                     break;
                 case 2:
                 case 4:
-                    line1 = IncomeAmount;
+                    grossAmount = IncomeAmount;
                     switch (AllowenceAmount)
                     {
                         case 0:
-                            line2 = 0;
+                            numWithAllowances = 0;
                             break;
                         case 1:
-                            line2 = 154;
+                            numWithAllowances = 154;
                             break;
                         case 2:
-                            line2 = 308;
+                            numWithAllowances = 308;
                             break;
                         case 3:
-                            line2 = 462;
+                            numWithAllowances = 462;
                             break;
                         case 4:
-                            line2 = 615;
+                            numWithAllowances = 615;
                             break;
                         case 5:
-                            line2 = 769;
+                            numWithAllowances = 769;
                             break;
                         case 6:
-                            line2 = 923;
+                            numWithAllowances = 923;
                             break;
                         case 7:
-                            line2 = 1077;
+                            numWithAllowances = 1077;
                             break;
                         case 8:
-                            line2 = 1231;
+                            numWithAllowances = 1231;
                             break;
                         case 9:
-                            line2 = 1365;
+                            numWithAllowances = 1365;
                             break;
                         case 10:
-                            line2 = 1538;
+                            numWithAllowances = 1538;
                             break;
                         default:
                             if (AllowenceAmount > 10)
                             {
                                 int temp = AllowenceAmount - 10;
                                 temp *= 154;
-                                line2 = temp;
+                                numWithAllowances = temp;
                             }
                             break;
                     }
-                    line3 = line1 - line2;
-                    if (line3 >= 165)
+                    diffOfAllowandGross = grossAmount - numWithAllowances;
+                    if (diffOfAllowandGross > 165)
                     {
-                        line4 = (line3 - 165) * statePre;
+                        totalAfterPerWithTableandStatePre = (diffOfAllowandGross - 165) * statePre;
                     }
                     else
                     {
-                        line4 = 0;
+                        totalAfterPerWithTableandStatePre = 0;
                     }
-                    StateWith = line4;
+                    StateWith = totalAfterPerWithTableandStatePre;
                     break;
                 default:
-                    line1 = IncomeAmount;
+                    grossAmount = IncomeAmount;
                     switch (AllowenceAmount)
                     {
                         case 0:
-                            line2 = 0;
+                            numWithAllowances = 0;
                             break;
                         case 1:
-                            line2 = 154;
+                            numWithAllowances = 154;
                             break;
                         case 2:
-                            line2 = 308;
+                            numWithAllowances = 308;
                             break;
                         case 3:
-                            line2 = 462;
+                            numWithAllowances = 462;
                             break;
                         case 4:
-                            line2 = 615;
+                            numWithAllowances = 615;
                             break;
                         case 5:
-                            line2 = 769;
+                            numWithAllowances = 769;
                             break;
                         case 6:
-                            line2 = 923;
+                            numWithAllowances = 923;
                             break;
                         case 7:
-                            line2 = 1077;
+                            numWithAllowances = 1077;
                             break;
                         case 8:
-                            line2 = 1231;
+                            numWithAllowances = 1231;
                             break;
                         case 9:
-                            line2 = 1365;
+                            numWithAllowances = 1365;
                             break;
                         case 10:
-                            line2 = 1538;
+                            numWithAllowances = 1538;
                             break;
                         default:
                             if (AllowenceAmount > 10)
                             {
                                 int temp = AllowenceAmount - 10;
                                 temp *= 154;
-                                line2 = temp;
+                                numWithAllowances = temp;
                             }
                             break;
                     }
-                    line3 = line1 - line2;
-                    if (line3 >= 44)
+                    diffOfAllowandGross = grossAmount - numWithAllowances;
+                    if (diffOfAllowandGross > 44)
                     {
-                        line4 = (line3 - 44) * statePre;
+                        totalAfterPerWithTableandStatePre = (diffOfAllowandGross - 44) * statePre;
                     }
                     else
                     {
-                        line4 = 0;
+                        totalAfterPerWithTableandStatePre = 0;
                     }
-                    StateWith = line4;
+                    StateWith = totalAfterPerWithTableandStatePre;
                     break;
             }
             return StateWith;
