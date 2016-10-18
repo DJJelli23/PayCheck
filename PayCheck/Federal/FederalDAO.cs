@@ -21,10 +21,12 @@ namespace PayCheck.Federal
             con = connect("State and Fed Taxes");
             sqlState = sql;
             SqlCommand com = new SqlCommand(sql2, con);
-            SqlDataReader reader = com.ExecuteReader();
-            while (reader.Read())
+            using (SqlDataReader reader = com.ExecuteReader())
             {
-                matchingTaxInformation = Convert.ToDecimal(reader[sqlState]);
+                while (reader.Read())
+                {
+                    matchingTaxInformation = Convert.ToDecimal(reader[sqlState]);
+                }
             }
             con.Close();
             return matchingTaxInformation;
@@ -38,10 +40,12 @@ namespace PayCheck.Federal
             con = connect("State and Fed Taxes");
             sqlState = sql;
             SqlCommand com = new SqlCommand(sql2, con);
-            SqlDataReader reader = com.ExecuteReader();
-            while (reader.Read())
+            using (SqlDataReader reader = com.ExecuteReader())
             {
-                matchingTaxInformation = Convert.ToInt32(reader[sqlState]);
+                while (reader.Read())
+                {
+                    matchingTaxInformation = Convert.ToInt32(reader[sqlState]);
+                }
             }
             con.Close();
             return matchingTaxInformation;
