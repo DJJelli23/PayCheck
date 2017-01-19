@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PayCheck
 {
-    class CalculateClass
+    class CalculateClassBiWeekly
     {
         private decimal total = 0;
         private decimal subtotal = 0;

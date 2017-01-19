@@ -13,7 +13,7 @@ namespace PayCheck
 {
     public partial class payCheckForm : Form
     {
-        CalculateClass calculator = new CalculateClass();
+        CalculateClassBiWeekly calculator = new CalculateClassBiWeekly();
         private decimal subtotal = 0;
         public payCheckForm()
         {

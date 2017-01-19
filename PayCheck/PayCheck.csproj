@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDAO.cs" />
-    <Compile Include="CalculateClass.cs" />
+    <Compile Include="CalculateClassBiWeekly.cs" />
     <Compile Include="Federal\FederalClass.cs" />
     <Compile Include="Federal\FederalDAO.cs" />
     <Compile Include="Federal\FederalDS.cs" />
