@@ -42,7 +42,7 @@ namespace PayCheck
             bool holPay = Holiday(holBol);//Checking for holiday pay.
             int holidayHours = 0;
             firstWeek = HoursCalc(firstW);//Getting the decimal to calculate money for first week.
-            secWeek = HoursCalc(secW);//Getting the deciaml to calculate money for second week.
+            secWeek = HoursCalc(secW);//Getting the decimal to calculate money for second week.
             total = CheckHourly(firstWeek, secWeek);
             if (holPay)
             {
@@ -183,7 +183,7 @@ namespace PayCheck
             return total;
         }
 
-        //Calculating Medicade and Medicare.
+        //Calculating Medicaid and Medicare.
         public decimal CalcMed()
         {
             subtotal = total * fedMed;

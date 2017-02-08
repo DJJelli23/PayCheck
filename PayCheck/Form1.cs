@@ -26,7 +26,7 @@ namespace PayCheck
             ptoGroupBox.Location = new Point(194, 195);
             ptoAmountLabel.Location = new Point(12, 249);
             ptoTextBox.Location = new Point(194, 235);
-            //Allowences information
+            //Allowances information
             allowLabel.Location = new Point(394, 117);
             allowTextBox.Location = new Point(585, 115);
             //Filling status UI
@@ -90,7 +90,7 @@ namespace PayCheck
                 string hopePercent = RemoveSpecialCharacters(percentSavingBox.Text);
                 savings = Convert.ToDecimal(hopePercent) / 100;
             }
-            else if (amountSavingRadioButton.Checked && amountSavingTextBox.Text != "")//Getting the amount from the whole abount text box.
+            else if (amountSavingRadioButton.Checked && amountSavingTextBox.Text != "")//Getting the amount from the whole amount text box.
             {
                 string hopeAmount = RemoveSpecialCharacters(amountSavingTextBox.Text);
                 savings = Convert.ToDecimal(hopeAmount);
