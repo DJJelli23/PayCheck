@@ -36,17 +36,17 @@ namespace PayCheck
         //Calculating gross wages before taxes are taken out.
 
         //--------------------------------------Notes-------------------------------------------------//
-        public void CheckWage(decimal hour, decimal firstW, decimal secW, char holBol, int holInt)
+        public void CheckWage(decimal hour, decimal firstW, decimal secW, char holidayTrue, int holidayDays)
         {
             hourly = hour;
-            bool holPay = Holiday(holBol);//Checking for holiday pay.
+            bool holidayPay = Holiday(holidayTrue);//Checking for holiday pay.
             int holidayHours = 0;
             firstWeek = HoursCalc(firstW);//Getting the decimal to calculate money for first week.
             secWeek = HoursCalc(secW);//Getting the decimal to calculate money for second week.
-            total = CheckHourly(firstWeek, secWeek);
-            if (holPay)
+            total = CheckHoursAndOvertime(firstWeek, secWeek);
+            if (holidayPay)
             {
-                for (int i = 0; i < holInt; i++)
+                for (int i = 0; i < holidayDays; i++)
                 {
                     holidayHours += 8;
                 }
@@ -56,10 +56,10 @@ namespace PayCheck
         }
 
         //Checking if the user will have holiday pay.
-        public bool Holiday(char holBol2)
+        public bool Holiday(char holidayTrue2)
         {
             bool holidayPay;
-            switch (holBol2)
+            switch (holidayTrue2)
             {
                 case 'y':
                     {
@@ -76,7 +76,7 @@ namespace PayCheck
         }
 
         //Converting minutes into decimal form.
-        public decimal CheckHourly(decimal firstW, decimal secW)
+        public decimal CheckHoursAndOvertime(decimal firstW, decimal secW)
         {
             decimal oneWeek = 40;
             decimal twoWeek = 80;
