@@ -43,6 +43,7 @@ namespace PayCheck
             get { return stateWith; }
             set { stateWith = value; }
         }
+
         public decimal CalculateStateTax()
         {
             return stateWith;

@@ -13,7 +13,7 @@ namespace PayCheck
 {
     public partial class payCheckForm : Form
     {
-        CalculateClass calculator = new CalculateClass();
+        CalculateClassBiWeekly calculator = new CalculateClassBiWeekly();
         private decimal subtotal = 0;
         public payCheckForm()
         {
@@ -21,23 +21,29 @@ namespace PayCheck
             ///Holiday selection
             holidayPayLabel.Location = new Point(12, 167);
             holidayGroupBox.Location = new Point(194, 157);
+
             //PTO information
             ptoLabel.Location = new Point(12, 206);
             ptoGroupBox.Location = new Point(194, 195);
             ptoAmountLabel.Location = new Point(12, 249);
             ptoTextBox.Location = new Point(194, 235);
-            //Allowences information
+
+            //Allowances information
             allowLabel.Location = new Point(394, 117);
             allowTextBox.Location = new Point(585, 115);
+
             //Filling status UI
             singleMarriedLabel.Location = new Point(394, 159);
             fillingStatusComboBox.Location = new Point(585, 157);
+
             //State label and combo box
             stateLabel.Location = new Point(394, 203);
             stateComboBox.Location = new Point(585, 201);
+
             //Garnish amount label and combo box
             garnishmentLabel.Location = new Point(394, 78);
             garnishmentGroupBox.Location = new Point(585, 65);
+
             //Federal and State tax label
             taxLabel.Location = new Point(394, 406);
         }
@@ -90,7 +96,7 @@ namespace PayCheck
                 string hopePercent = RemoveSpecialCharacters(percentSavingBox.Text);
                 savings = Convert.ToDecimal(hopePercent) / 100;
             }
-            else if (amountSavingRadioButton.Checked && amountSavingTextBox.Text != "")//Getting the amount from the whole abount text box.
+            else if (amountSavingRadioButton.Checked && amountSavingTextBox.Text != "")//Getting the amount from the whole amount text box.
             {
                 string hopeAmount = RemoveSpecialCharacters(amountSavingTextBox.Text);
                 savings = Convert.ToDecimal(hopeAmount);
@@ -186,7 +192,7 @@ namespace PayCheck
                 case ("Married Jointly"):
                     calculator.SinMar = 2;
                     break;
-                case ("Married Seperately"):
+                case ("Married Separately"):
                     calculator.SinMar = 3;
                     break;
                 case ("Head of Household"):
@@ -237,7 +243,7 @@ namespace PayCheck
             {
                 holiday = 'n';
             }
-            //Here is where the option on what weeks are changed to would be a good thing. The current on for 1 week calcualtions.
+            //Here is where the option on what weeks are changed to would be a good thing. The current on for 1 week calculations.
             if (decimal.TryParse(payPerHours, out hoursH) && decimal.TryParse(hoursFir, out hoursF) && decimal.TryParse(hoursSec, out hoursS))
             {
                 hoursH = Convert.ToDecimal(payPerHours);
@@ -318,7 +324,7 @@ namespace PayCheck
             int allowTest;
             if (!int.TryParse(allow, out allowTest))//Check to make sure the user entered a number.
             {
-                MessageBox.Show("You did not enter a number in Allowences.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("You did not enter a number in Allowances.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 allowTextBox.Text = "";
                 Clear();
             }
