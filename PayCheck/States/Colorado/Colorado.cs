@@ -16,7 +16,7 @@ namespace PayCheck
             decimal diffOfAllowandGross;
             decimal totalAfterPerWithTableandStatePre;
             decimal statePre = coloDS.SomeMethod("[State Percentage]", "State Percentage", 1);
-            //this is where the if statement would go to see which payperiod the user has.
+            //this is where the if statement would go to see which pay period the user has.
             switch (MaritalStatus)
             {
                 case 1:

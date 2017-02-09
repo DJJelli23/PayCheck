@@ -28,7 +28,7 @@ namespace PayCheck
             decimal diffOfAllowandGrossPercent;
             decimal statePre = utahDS.SomeMethod("[State Tax Amount]", "State Tax Amount", 1);
 
-            //this is where the if statement would go to see which payperiod the user has.
+            //this is where the if statement would go to see which pay period the user has.
             switch (MaritalStatus)
             {
                 case 1:
